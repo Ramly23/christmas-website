@@ -18,7 +18,7 @@
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
   --body-font: 'Poppins', sans-serif;
-  
+
   --biggest-font-size: 1.5rem;
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
@@ -132,8 +132,8 @@ body.dark-theme {
     Color changes in some parts of 
     the website, in dark theme 
 ==========*/
-
-.dark-theme .scroll-header, .dark-theme .nav__menu {
+.dark-theme .scroll-header,
+.dark-theme .nav__menu {
   box-shadow: 0 2px 4px hsla(0, 0%, 4%, .3);
 }
 
@@ -152,6 +152,7 @@ body.dark-theme {
 .dark-theme .message__button:hover {
   background-color: var(--first-color-alt);
 }
+
 .dark-theme::-webkit-scrollbar {
   background: hsl(355, 8%, 30%);
 }
@@ -189,11 +190,10 @@ body.dark-theme {
   top: 0;
   left: 0;
   z-index: var(--z-fixed);
-  transition: .4s;
+  transition: .4s; /*For animation dark mode*/
 }
 
 /*=============== NAV ===============*/
-
 .nav {
   height: var(--header-height);
   display: flex;
@@ -201,7 +201,9 @@ body.dark-theme {
   align-items: center;
 }
 
-.nav__logo , .nav__close, .nav__toggle {
+.nav__logo, 
+.nav__close, 
+.nav__toggle {
   color: var(--title-color);
 }
 
@@ -319,7 +321,7 @@ body.dark-theme {
   padding: 1.15rem 2.75rem;
   font-weight: var(--font-medium);
   border-radius: 3rem;
-  transition: 300ms ease-in-out;
+  transition: .3s;
 }
 
 .button:hover {
@@ -368,7 +370,7 @@ body.dark-theme {
 }
 
 .celebrate__description {
-  margin-bottom: var(--mb-2-5)
+  margin-bottom: var(--mb-2-5);
 }
 
 .celebrate__img {
@@ -552,10 +554,10 @@ body.dark-theme {
 
 .footer__description {
   font-size: var(--small-font-size);
-  margin-top: var(--mb-0-5);
 }
 
-.footer-logo, .footer__title {
+.footer__logo, 
+.footer__title {
   margin-bottom: var(--mb-1);
 }
 
@@ -563,7 +565,8 @@ body.dark-theme {
   font-size: var(--h3-font-size);
 }
 
-.footer__links, .footer__aviables {
+.footer__links, 
+.footer__aviables {
   display: flex;
   flex-direction: column;
   row-gap: .75rem;
@@ -591,7 +594,8 @@ body.dark-theme {
   color: var(--text-color-light);
 }
 
-.footer__img1, .footer__img2 {
+.footer__img1, 
+.footer__img2 {
   position: absolute;
   width: 100px;
 }
@@ -618,16 +622,16 @@ body.dark-theme {
   border-radius: .25rem;
   z-index: var(--z-tooltip);
   opacity: .8;
-  transition: 1s;
+  transition: .4s;
+}
+
+.scrollup:hover {
+  opacity: 1;
 }
 
 .scrollup__icon {
   font-size: 1.25rem;
   color: var(--first-color);
-}
-
-.scrollup:hover {
-  opacity: 1;
 }
 
 /* Show Scroll Up*/
@@ -639,17 +643,232 @@ body.dark-theme {
 ::-webkit-scrollbar {
   width: .6rem;
   background: hsl(355, 8%, 44%);
+  border-radius: 1rem;
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(355, 32%, 17%);
+  border-radius: 1rem;
 }
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-left: var(--mb-1);
+    margin-right: var(--mb-1);
+  }
 
+  .giving__container {
+    gap: 1rem;
+  }
+
+  .gift__container {
+    grid-template-columns: 150px;
+    justify-content: center;
+  }
+}
 
 /* For medium devices */
+@media screen and (min-width: 576px) {
+  .home__description {
+    padding: 0 8rem;
+  }
 
+  .giving__container {
+    grid-template-columns: repeat(2, 142px);
+    justify-content: center;
+    gap: 2.5rem 3.5rem;
+  }
+
+  .celebrate__description {
+    padding: 0 4rem;
+  }
+
+  .gift__container {
+    grid-template-columns: repeat(2, 180px);
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .message__input,
+  .message__button {
+    width: 60%;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (min-width: 767px) {
+  body {
+    margin: 0;
+  }
+  .section {
+    padding: 6.5rem 0 2rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+    column-gap: 3rem;
+  }
+  .nav__toggle, 
+  .nav__close, 
+  .nav__img {
+    display: none;
+  }
+  .nav__menu {
+    margin-left: auto;
+  }
+  .nav__list {
+    flex-direction: row;
+    column-gap: 3rem;
+  }
+  .dark-theme .nav__menu {
+    box-shadow: none;
+  }
+
+  .home__container,
+  .celebrate__container,
+  .message__container {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+  .home__container {
+    padding-top: 8rem;
+  }
+  .home__data {
+    text-align: initial;
+  }
+  .home__description {
+    padding: 0;
+  }
+
+  .giving__container {
+    grid-template-columns: repeat(3, 142px);
+    column-gap: 5rem;
+  }
+
+  .celebrate__data, 
+  .celebrate__title {
+    text-align: initial;
+  }
+  .celebrate__description {
+    padding: 0;
+  }
+
+  .gift__container {
+    grid-template-columns: repeat(3, 200px);
+    gap: 2.5rem;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /* For large devices */
+@media screen and (min-width: 992px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .home__container {
+    column-gap: 1rem;
+  }
+  .home__img {
+    width: 500px;
+  }
+  .home__description {
+    padding-right: 8rem;
+  }
+
+  .giving__container {
+    column-gap: 8rem;
+    padding-top: 2rem;
+  }
+  .giving__img {
+    width: 120px;
+  }
+
+  .celebrate__img {
+    width: 450px;
+  }
+  .celebrate__description {
+    padding-right: 7rem;
+  }
+
+  .gift__container {
+    padding-top: 2rem;
+  }
+  .gift__card {
+    padding: 2rem 1.5rem 1.5rem;
+  }
+  .gift__img {
+    width: 120px;
+    margin-bottom: var(--mb-1);
+  }
+  .gift__title {
+    font-size: var(--small-font-size);
+  }
+
+  .new__container {
+    padding-top: 2rem;
+  }
+  .new__card {
+    margin-bottom: 5rem;
+  }
+  .new__price {
+    font-size: var(--h3-font-size);
+  }
+
+  .message__container {
+    padding: 3.5rem 0;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 4rem;
+    justify-content: center;
+  }
+
+  .message__form {
+    text-align: initial;
+  }
+  .message__title {
+    font-size: var(--h1-font-size);
+  }
+  .message__input {
+    display: block;
+    width: 280px;
+  }
+  .message__button {
+    width: initial;
+  }
+  .message__img {
+    width: 320px;
+  }
+
+  .footer__container {
+    grid-template-columns: repeat(4, max-content);
+    justify-content: space-between;
+  }
+  .footer__copy {
+    margin-top: 7rem;
+  }
+  .footer__img1, 
+  .footer__img2 {
+    width: 120px;
+  }
+  .footer__img1 {
+    top: 100%;
+    left: 0;
+  }
+  .footer__img2 {
+    top: 40%;
+    right: -7rem;
+  }
+  
+  .scrollup {
+    right: 3rem;
+  }
+}
